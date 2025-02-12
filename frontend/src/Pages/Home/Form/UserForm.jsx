@@ -1,9 +1,18 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+import axios from "axios";
+
 import Button from "../../Button/Button";
 import QuickChangeButtons from "../../Button/FormButtons/QuickChangeButtons";
 import HomeStateSelect from "./HomeStateSelect";
 
 const UserForm = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     percentile: "",
     marks: "",
@@ -14,13 +23,44 @@ const UserForm = () => {
     category: "",
   });
 
-  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]: value, 
+      [name]: value,
     }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevents default form behavior
+
+    try {
+      const url = "/details";
+      const body = { ...formData }; // Ensure formData is correctly referenced
+
+      const res = await axios.post(url, body, {
+        headers: {
+          "Content-Type": "application/json", // ✅ Ensures JSON format
+          Authorization: `Bearer YOUR_TOKEN_HERE`, // (Optional) If API needs authentication
+        },
+      });
+
+      console.log("Response:", res.data); // ✅ Logs API response
+
+      if (res.status === 200 || res.status === 201) {
+        navigate("/result"); // ✅ Navigate only on success
+      } else {
+        toast.error("Unexpected Error, Please Try-Again!", {
+          className: "custom-toast",
+          style: { background: "white", color: "red" },
+        });
+      }
+    } catch (error) {
+      toast.error("Server Down, Please Try-Again!", {
+        className: "custom-toast",
+        style: { background: "white", color: "red" },
+      });
+    }
   };
 
   const [active, setActive] = useState("By Percentile");
@@ -39,9 +79,12 @@ const UserForm = () => {
         active={active}
         setActive={setActive}
       />
-  
+
       {/* Home State Dropdown */}
-      <HomeStateSelect formData={formData} setFormData={setFormData}></HomeStateSelect>
+      <HomeStateSelect
+        formData={formData}
+        setFormData={setFormData}
+      ></HomeStateSelect>
 
       {/* PwD (Person With Disability) */}
       <fieldset className="mt-4">
@@ -182,6 +225,7 @@ const UserForm = () => {
           onClick={() =>
             setFormData({
               percentile: "",
+              marks: "",
               homeState: "All India (Default)",
               pwd: "No",
               gender: "Male",
@@ -193,7 +237,12 @@ const UserForm = () => {
         >
           Clear
         </button>
-        <Button title="Get Results"></Button>
+        <button
+          className="text-white flex gap-4 px-8 cursor-pointer justify-center items-center py-2 rounded-full h-[52px] font-bold bg-[#161B2D]"
+          onClick={(e) => handleSubmit(e)}
+        >
+          Get Results
+        </button>
       </div>
     </form>
   );

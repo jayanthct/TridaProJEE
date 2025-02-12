@@ -1,25 +1,29 @@
-import React from "react";
-import ResultMainSection from "./Pages/Result/MainSection/ResultMainSection";
-import ResultTable from "./Pages/Result/ResultTable/ResultTable";
-import Button from "./Pages/Button/Button";
-import NavBar from "./Pages/Header/NavBar";
-import UserForm from "./Pages/Home/Form/UserForm";
-import HomeMainSection from "./Pages/Home/HomeMainSection/HomeMainSection";
-import Footer from "./Pages/Footer/Footer";
-import Loader from "./Pages/Header/Loader";
+import React, { useEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 
-import logo from "./Pages/Header/Assets/SmallLogo.svg";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+import HomeMainSection from "./Pages/Home/HomeMainSection/HomeMainSection";
+import ResultMainSection from "./Pages/Result/MainSection/ResultMainSection";
+import Layout from "./Pages/Layout/Layout";
 
 function App() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scrolls to the top whenever pathname changes
+  }, [pathname]);
+
   return (
     <>
-      <NavBar></NavBar>
-      {/* <Button title="Retry"></Button> */}
-      <ResultMainSection></ResultMainSection>
-
-      <HomeMainSection></HomeMainSection>
-      <Footer></Footer>
-      {/* <Loader logo={logo}></Loader> */}
+      <ToastContainer />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomeMainSection />} />
+          <Route path="result" element={<ResultMainSection />} />
+        </Route>
+      </Routes>
     </>
   );
 }

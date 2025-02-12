@@ -4,6 +4,9 @@ import students from "../Assets/students.png";
 import layers from "./layers.png";
 
 function HomeMainSection() {
+
+  
+
   return (
     <>
       <section className="mainsection flex flex-row justify-center items-center gap-6 lg:pr-[10%] lg:pl-0 px-[16px] w-full relative overflow-clip">
@@ -16,7 +19,7 @@ function HomeMainSection() {
         <img
           src={layers}
           alt=""
-          className="background absolute -z-3 top-[-120px] left-[-220px] scale-[-1]"
+          className="background absolute -z-3 top-[-260px] left-[-220px] scale-[-1]"
         />
 
         {/* Left Content + Image in a single flex column */}
