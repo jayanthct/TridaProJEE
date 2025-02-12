@@ -9,8 +9,7 @@ import axios from "axios";
 import QuickChangeButtons from "../../Button/FormButtons/QuickChangeButtons";
 import HomeStateSelect from "./HomeStateSelect";
 
-import Loader from "../../Header/Loader"
-
+import Loader from "../../Header/Loader";
 
 const UserForm = () => {
   const navigate = useNavigate();
@@ -18,11 +17,11 @@ const UserForm = () => {
   const [formData, setFormData] = useState({
     percentile: "",
     marks: "",
-    homeState: "All India (Default)",
-    pwd: "No",
-    gender: "Male",
-    sortBy: "College",
-    category: "",
+    homeState: "All India",
+    pwd: "NO",
+    gender: "M",
+    sortby: "Institute",
+    category: "GEN",
   });
 
   const handleChange = (e) => {
@@ -34,19 +33,25 @@ const UserForm = () => {
   };
 
   const [loading, setLoading] = useState(false);
-
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent default form behavior
     setLoading(true); // Show loader
 
     try {
-      const url = "/details";
-      const body = { ...formData };
+      const url = "http://127.0.0.1:5000/predict"; // Ensure correct URL
+      const body = {
+        percentile:  "89.5", // Ensure data is taken from the form
+        marks: "",
+        state: "All India",
+        pwd: "NO",
+        gender:"M",
+        sortby:"Institute",
+        category:"GEN"
+      };
 
       const res = await axios.post(url, body, {
         headers: {
-          "Content-Type": "application/json", // ✅ Ensures JSON format
-          Authorization: `Bearer YOUR_TOKEN_HERE`, // (Optional) If API needs authentication
+          "Content-Type": "application/json",
         },
       });
 
@@ -55,8 +60,8 @@ const UserForm = () => {
       if (res.status === 200 || res.status === 201) {
         setTimeout(() => {
           setLoading(false);
-          navigate("/result");
-        }, 2500); // ✅ Show loader for 2.5 sec before navigating
+          navigate("/result", { state: { data: res.data } }); // Pass data to result page
+        }, 2500);
       } else {
         toast.error("Unexpected Error, Please Try Again!", {
           className: "custom-toast",
@@ -65,6 +70,7 @@ const UserForm = () => {
         setLoading(false);
       }
     } catch (error) {
+      console.error("Error:", error);
       toast.error("Server Down, Please Try Again!", {
         className: "custom-toast",
         style: { background: "white", color: "red" },
@@ -109,7 +115,7 @@ const UserForm = () => {
               <span className="text-[#FF4E59]">*</span>
             </legend>
             <div className="flex gap-4 mt-4">
-              {["Yes", "No"].map((option) => (
+              {["YES", "NO"].map((option) => (
                 <label key={option} className="flex items-center space-x-2">
                   <input
                     type="radio"
@@ -142,7 +148,7 @@ const UserForm = () => {
               Gender <span className="text-[#FF4E59]">*</span>
             </legend>
             <div className="flex gap-4 mt-4 ">
-              {["Male", "Female"].map((option) => (
+              {["M", "F"].map((option) => (
                 <label key={option} className="flex items-center space-x-2">
                   <input
                     type="radio"
@@ -179,20 +185,20 @@ const UserForm = () => {
                 <label key={option} className="flex items-center space-x-2">
                   <input
                     type="radio"
-                    name="sortBy"
+                    name="sortby"
                     value={option}
-                    checked={formData.sortBy === option}
+                    checked={formData.sortby === option}
                     onChange={handleChange}
                     className="hidden"
                   />
                   <div
                     className={`w-5 h-5 border-2 border-[#FF4E59] rounded-full flex items-center justify-center ${
-                      formData.sortBy === option ? "border-6" : "bg-white"
+                      formData.sortby === option ? "border-6" : "bg-white"
                     }`}
                   />
                   <span
                     className={`text-[#161B2D] ${
-                      formData.sortBy === option ? "font-medium" : "font-normal"
+                      formData.sortby === option ? "font-medium" : "font-normal"
                     }`}
                   >
                     {option}
@@ -208,7 +214,7 @@ const UserForm = () => {
               Category <span className="text-[#FF4E59]">*</span>
             </legend>
             <div className="flex flex-wrap md:flex-row w-full justify-start items-start gap-6 mt-4">
-              {["General", "OBC", "EWS", "SC", "ST"].map((option) => (
+              {["GEN", "OBC", "EWS", "SC", "ST"].map((option) => (
                 <label key={option} className="flex items-center space-x-2">
                   <input
                     type="radio"

@@ -45,7 +45,7 @@ function QuickChangeButtons({ formData, handleChange }) {
             min={0}
             max={300}
             placeholder="Enter Marks"
-            className="w-full h-[52px] -mt-2 p-2 pl-4 border-1 border-[#161b2d29] rounded-[6px] bg-white cursor-text hover:outline-1 hover:outline-[#ff4e5a62] focus:outline-2 focus:outline-[#ff4e5aa0]"
+            className="w-full h-[52px] -mt-2 p-2 pl-4 border-1 border-[#161b2d29] rounded-[6px] bg-white cursor-text hover:outline-1 hover:outline-[#ff4e5a62] focus:outline-2 focus:outline-[#ff4e5aa0] appearance-none"
             style={{
               boxShadow: "0px 1px 12px 0px rgba(255, 78, 89, 0.08)",
             }}
@@ -68,7 +68,7 @@ function QuickChangeButtons({ formData, handleChange }) {
             min={0}
             max={100}
             placeholder="Enter Percentile"
-            className="w-full h-[52px] -mt-2 p-2 pl-4 border-1 border-[#161b2d29] rounded-[6px] bg-white cursor-text hover:outline-1 hover:outline-[#ff4e5a62] focus:outline-2 focus:outline-[#ff4e5aa0] "
+            className="w-full h-[52px] -mt-2 p-2 pl-4 border-1 border-[#161b2d29] rounded-[6px] bg-white cursor-text hover:outline-1 hover:outline-[#ff4e5a62] focus:outline-2 focus:outline-[#ff4e5aa0] appearance-none"
             style={{
               boxShadow: "0px 1px 12px 0px rgba(255, 78, 89, 0.08)",
             }}
