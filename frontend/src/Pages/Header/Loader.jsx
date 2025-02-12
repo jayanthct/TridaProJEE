@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
+import logo from "./Assets/SmallLogo.svg"
 
-const Loader = ({ logo }) => {
+const Loader = () => {
   return (
     <div className="flex justify-center items-center h-screen bg-white">
       <div className="relative w-32 h-32 flex justify-center items-center">
