@@ -2,7 +2,7 @@ import React from "react";
 import design from "./Assets/design.svg";
 import CountUp from './CountUp'
 
-function RankCard() {
+function RankCard({rank}) {
   return (
     <>
       <section
@@ -29,17 +29,14 @@ function RankCard() {
         </div>
 
         <div className="rank">
-          <p className="rank font-extrabold text-[#161b2d] text-[82px] lg:text-[98px]">
-            8774
-          </p>
-          {/* <CountUp
-            from={8763}
-            to={9643}
+          <CountUp
+            from={rank+674}
+            to={rank}
             separator=","
             direction="up"
             duration={1}
             className="rank font-extrabold text-[#161b2d] text-[82px] lg:text-[98px] count-up-text"
-          /> */}
+          />
         </div>
 
         <div className="desclaimer flex w-full justify-end items-end">

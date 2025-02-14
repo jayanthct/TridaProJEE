@@ -17,9 +17,8 @@ import TableNotFound from "../../../../TableNotFound";
 //   icon: [<FaFlask />, <FaLaptopCode />, <FaWrench />, <FaBuilding />][i % 4],
 // }));
 
-const collegeData =[];
 
-const ResultTable = () => {
+const ResultTable = ({collegeData}) => {
   const itemsPerPage = 8;
   const [currentPage, setCurrentPage] = useState(1);
 

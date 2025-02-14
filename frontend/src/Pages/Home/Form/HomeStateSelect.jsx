@@ -1,11 +1,43 @@
 import Select from "react-select";
 
 const options = [
-  { value: "All India", label: "All India (Default)" },
-  { value: "AP", label: "AP - Andhra Pradesh" },
-  { value: "GO", label: "GO - Goa" },
-  { value: "JK", label: "JK - Jammu & Kashmir" },
-  { value: "LK", label: "LK - Ladakh" },
+  { value: "All India", label: "All India" },
+  { value: "Andaman and Nicobar Islands", label: "Andaman & Nicobar Islands" },
+  { value: "Andhra Pradesh", label: "Andhra Pradesh" },
+  { value: "Arunachal Pradesh", label: "Arunachal Pradesh" },
+  { value: "Assam", label: "Assam" },
+  { value: "Bihar", label: "Bihar" },
+  { value: "Chandigarh", label: "Chandigarh" },
+  { value: "Chhattisgarh", label: "Chhattisgarh" },
+  { value: "Dadra and Nagar Havelli", label: "Dadra & Nagar Havelli" },
+  { value: "Daman and Diu", label: "Daman & Diu" },
+  { value: "Delhi", label: "Delhi" },
+  { value: "Goa", label: "Goa" },
+  { value: "Gujarat", label: "Gujarat" },
+  { value: "Haryana", label: "Haryana" },
+  { value: "Himachal Pradesh", label: "Himachal Pradesh" },
+  { value: "Jammu and Kashmir", label: "Jammu & Kashmir" },
+  { value: "Jharkhand", label: "Jharkhand" },
+  { value: "Karnataka", label: "Karnataka" },
+  { value: "Kerela", label: "Kerela" },
+  { value: "Lakshwadeep", label: "Lakshwadeep" },
+  { value: "Madhya Pradesh", label: "Madhya Pradesh" },
+  { value: "Maharashtra", label: "Maharashtra" },
+  { value: "Manipur", label: "Manipur" },
+  { value: "Megahalaya", label: "Megahalaya" },
+  { value: "Mizoram", label: "Mizoram" },
+  { value: "Nagaland", label: "Nagaland" },
+  { value: "Orissa", label: "Orissa" },
+  { value: "Pondicherry", label: "Pondicherry" },
+  { value: "Punjab", label: "Punjab" },
+  { value: "Rajasthan", label: "Rajasthan" },
+  { value: "Sikkim", label: "Sikkim" },
+  { value: "Tamil Nadu", label: "Tamil Nadu" },
+  { value: "Telangana", label: "Telangana" },
+  { value: "Tripura", label: "Tripura" },
+  { value: "Uttar Pradesh", label: "Uttar Pradesh" },
+  { value: "Uttarakhand", label: "Uttarakhand" },
+  { value: "West Bengal", label: "West Bengal" },
 ];
 
 const customStyles = {
@@ -62,7 +94,7 @@ const HomeStateSelect = ({ formData, setFormData }) => {
       cursor: "pointer",
       "&:hover": {
         backgroundColor: "#FF4E59",
-        color:"white"
+        color: "white",
       },
     }),
   };

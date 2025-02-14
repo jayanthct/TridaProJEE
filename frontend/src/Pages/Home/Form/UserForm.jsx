@@ -48,15 +48,6 @@ const UserForm = () => {
         gender: formData.gender,
         category: formData.category,
         sortby: formData.sortBy,
-        // marks: "150" ? parseFloat(formData.marks) : undefined,
-        // percentile: ""
-        //   ? parseFloat(formData.percentile)
-        //   : undefined,
-        // state: "All India",
-        // pwd: "NO",
-        // gender: "Male",
-        // category: "GEN",
-        // sortby: "Institute",
       };
       const url = "http://127.0.0.1:5000/predict";
       const res = await axios.post(url, body, {
@@ -188,7 +179,7 @@ const UserForm = () => {
               Sort By
             </legend>
             <div className="flex gap-4 mt-2">
-              {["College", "Branch"].map((option) => (
+              {["Institute", "Branch"].map((option) => (
                 <label key={option} className="flex items-center space-x-2">
                   <input
                     type="radio"
@@ -258,7 +249,7 @@ const UserForm = () => {
                 setFormData({
                   percentile: "",
                   marks: "",
-                  homeState: "All India (Default)",
+                  homeState: "All India",
                   pwd: "No",
                   gender: "Male",
                   sortBy: "College",
