@@ -5,8 +5,7 @@ import layers from "./src/Pages/Home/HomeMainSection/layers.png";
 
 
 
-function PageNotFound404() {
-
+function TableNotFound() {
   return (
     <>
       <section className="pagenotfound relative  flex flex-col gap-1 h-screen justify-center items-center px-[16px] py-0 md:py-[2%] md:px-[10%] w-full">
@@ -23,14 +22,14 @@ function PageNotFound404() {
         <div className="text flex flex-col justify-center items-center -mt-10">
           <span>
             <p className="heading text-[156px] lg:text-[264px] text-[#161B2D] font-extrabold">
-              404
+              {":)"}
             </p>
           </span>
           <p className="desc text-[27px] md:text-[36px] font-semibold text-[#FF4E59] -mt-10">
-            Page Not Found!
+            Sorry!
           </p>
           <p className="desc text-[#161B2D] text-[21px] md:text-[27px] font-normal">
-            Tryagain Later
+          We Don't find colleges for you
           </p>
         </div>
       </section>
@@ -38,4 +37,4 @@ function PageNotFound404() {
   );
 }
 
-export default PageNotFound404;
+export default TableNotFound;
