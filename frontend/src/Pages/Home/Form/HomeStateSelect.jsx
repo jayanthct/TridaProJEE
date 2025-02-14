@@ -1,11 +1,11 @@
 import Select from "react-select";
 
 const options = [
-  { value: "all-india", label: "All India (Default)" },
-  { value: "ap", label: "AP - Andhra Pradesh" },
-  { value: "go", label: "GO - Goa" },
-  { value: "jk", label: "JK - Jammu & Kashmir" },
-  { value: "lk", label: "LK - Ladakh" },
+  { value: "All India", label: "All India (Default)" },
+  { value: "AP", label: "AP - Andhra Pradesh" },
+  { value: "GO", label: "GO - Goa" },
+  { value: "JK", label: "JK - Jammu & Kashmir" },
+  { value: "LK", label: "LK - Ladakh" },
 ];
 
 const customStyles = {
@@ -75,7 +75,7 @@ const HomeStateSelect = ({ formData, setFormData }) => {
       <Select
         styles={customStyles}
         options={options}
-        styles={customStyles}
+        // styles={customStyles}
         placeholder="Select Home State"
         value={options.find((opt) => opt.value === formData.homeState)}
         onChange={(selectedOption) =>

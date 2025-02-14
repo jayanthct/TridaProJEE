@@ -38,29 +38,37 @@ const UserForm = () => {
     setLoading(true); // Show loader
 
     try {
-      const url = "http://127.0.0.1:5000/predict"; // Ensure correct URL
       const body = {
-        percentile:  "89.5", // Ensure data is taken from the form
-        marks: "",
-        state: "All India",
-        pwd: "NO",
-        gender:"M",
-        sortby:"Institute",
-        category:"GEN"
+        marks: formData.marks ? parseFloat(formData.marks) : undefined,
+        percentile: formData.percentile
+          ? parseFloat(formData.percentile)
+          : undefined,
+        state: formData.homeState,
+        pwd: formData.pwd,
+        gender: formData.gender,
+        category: formData.category,
+        sortby: formData.sortBy,
+        // marks: "150" ? parseFloat(formData.marks) : undefined,
+        // percentile: ""
+        //   ? parseFloat(formData.percentile)
+        //   : undefined,
+        // state: "All India",
+        // pwd: "NO",
+        // gender: "Male",
+        // category: "GEN",
+        // sortby: "Institute",
       };
-
+      const url = "http://127.0.0.1:5000/predict";
       const res = await axios.post(url, body, {
         headers: {
           "Content-Type": "application/json",
         },
       });
 
-      console.log("Response:", res.data);
-
       if (res.status === 200 || res.status === 201) {
         setTimeout(() => {
           setLoading(false);
-          navigate("/result", { state: { data: res.data } }); // Pass data to result page
+          navigate("/result", { state: { data: res.data,body } }); // Pass data to result page
         }, 2500);
       } else {
         toast.error("Unexpected Error, Please Try Again!", {
@@ -78,7 +86,6 @@ const UserForm = () => {
       setLoading(false);
     }
   };
-
   const [active, setActive] = useState("By Percentile");
 
   return (

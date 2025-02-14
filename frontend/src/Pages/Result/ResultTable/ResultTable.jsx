@@ -1,59 +1,35 @@
-import React from "react";
-import { FaFlask, FaLaptopCode, FaWrench, FaBuilding } from "react-icons/fa";
+import React, { useState } from "react";
 
-const collegeData = [
-  {
-    id: 1,
-    name: "BITS",
-    location: "Mesra",
-    branch: "Chemical Engineering",
-    icon: <FaFlask />,
-  },
-  {
-    id: 2,
-    name: "BITS",
-    location: "Mesra",
-    branch: "Computer Science and Engineering",
-    icon: <FaLaptopCode />,
-  },
-  {
-    id: 3,
-    name: "BITS",
-    location: "Mesra",
-    branch: "Mechanical Engineering",
-    icon: <FaWrench />,
-  },
-  {
-    id: 4,
-    name: "IIIT",
-    location: "Agartala",
-    branch: "Computer Science and Engineering",
-    icon: <FaLaptopCode />,
-  },
-  {
-    id: 5,
-    name: "IIIT",
-    location: "Agartala",
-    branch: "Mechanical Engineering",
-    icon: <FaWrench />,
-  },
-  {
-    id: 6,
-    name: "IIIT",
-    location: "Agartala",
-    branch: "Chemical Engineering",
-    icon: <FaFlask />,
-  },
-  {
-    id: 7,
-    name: "IIIT",
-    location: "Agartala",
-    branch: "Civil Engineering",
-    icon: <FaBuilding />,
-  },
-];
+import { FaFlask, FaLaptopCode, FaWrench, FaBuilding } from "react-icons/fa";
+import PaginationRounded from "../../PaginationRounded";
+
+const collegeData = Array.from({ length: 80 }, (_, i) => ({
+  id: i + 1,
+  name: i < 40 ? "BITS" : "IIIT",
+  location: i < 40 ? "Mesra" : "Agartala",
+  branch: [
+    "Chemical Engineering",
+    "Computer Science and Engineering",
+    "Mechanical Engineering",
+    "Civil Engineering",
+  ][i % 4],
+  icon: [<FaFlask />, <FaLaptopCode />, <FaWrench />, <FaBuilding />][i % 4],
+}));
 
 const ResultTable = () => {
+  const itemsPerPage = 8;
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const handlePageChange = (event, newPage) => {
+    setCurrentPage(newPage);
+  };
+
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const displayedColleges = collegeData.slice(
+    startIndex,
+    startIndex + itemsPerPage
+  );
+
   return (
     <>
       <div className="overflow-x-auto px-[16px] md:px-[10%] py-[2%] w-full">
@@ -66,7 +42,7 @@ const ResultTable = () => {
         </div>
         <table className="w-full border-collapse">
           <tbody>
-            {collegeData.map((college, index) => (
+            {displayedColleges.map((college, index) => (
               <tr
                 key={college.id}
                 className={`${
@@ -90,6 +66,13 @@ const ResultTable = () => {
             ))}
           </tbody>
         </table>
+        <div className="flex justify-center mt-6">
+          <PaginationRounded
+            count={Math.ceil(collegeData.length / itemsPerPage)}
+            page={currentPage}
+            onPageChange={handlePageChange}
+          />
+        </div>
       </div>
     </>
   );

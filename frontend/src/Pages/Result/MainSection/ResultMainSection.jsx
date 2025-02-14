@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import CollegeCard from "../CollegeCard/CollegeCard";
 import MetaData from "../MetaDeta/MetaDeta";
@@ -9,6 +9,10 @@ import ResultTable from "../ResultTable/ResultTable";
 import back from "../MainSection/back.svg"
 
 function ResultMainSection() {
+  const location = useLocation();
+  const data = location.state?.data; // Retrieve the data passed
+  const body = location.state?.body; // Retrieve the data passed
+  console.log(data);
 
   const navigate = useNavigate();
 
@@ -18,8 +22,8 @@ function ResultMainSection() {
     <section className="resultmainsection flex flex-wrap md:flex-row sm:flex-col gap-4 justify-center items-stretch px-[16px] md:px-[10%] py-[2%] w-full">
       {/* Rank + MetaData section */}
       <div className="rankandmeta flex flex-col w-full lg:w-[48%] h-full gap-4 justify-between items-center flex-grow">
-        <RankCard />
-        <MetaData />
+        <RankCard rank={"data?.rank"} />
+        <MetaData percentile={"data.percentile"} homestate = {"body.state"} gender = {"body.gender"} category={"body.category"} />
       </div>
 
       {/* College Card */}

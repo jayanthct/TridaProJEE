@@ -1,8 +1,8 @@
 import React from "react";
 
-function MetaData() {
+function MetaData({percentile,gender,homestate,category}) {
   const title = ["Percentile", "Gender", "Category", "Home State"];
-  const value = ["86.878", "Male", "EWS", "AP - Andhra Pradesh"];
+  const value = [percentile, gender, category, homestate];
 
   return (
     <section

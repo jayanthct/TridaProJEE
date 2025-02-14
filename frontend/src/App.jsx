@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import HomeMainSection from "./Pages/Home/HomeMainSection/HomeMainSection";
 import ResultMainSection from "./Pages/Result/MainSection/ResultMainSection";
 import Layout from "./Pages/Layout/Layout";
+import PageNotFound404 from "../PageNotFound404";
 
 function App() {
   const { pathname } = useLocation();
@@ -20,10 +21,13 @@ function App() {
       <ToastContainer />
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<HomeMainSection />} />
-          <Route path="result" element={<ResultMainSection />} />
+          <Route path="home" element={<HomeMainSection />} />
+          <Route index element={<ResultMainSection />} />
+          <Route path="*" element={ <PageNotFound404></PageNotFound404>} />
         </Route>
       </Routes>
+
+     
     </>
   );
 }
