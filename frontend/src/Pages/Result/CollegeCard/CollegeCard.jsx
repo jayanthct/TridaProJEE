@@ -2,7 +2,7 @@ import React from "react";
 import nagpur from "./Assets/nagpur.png";
 import computer from "./Assets/computer.svg";
 
-function CollegeCard() {
+function CollegeCard({title}) {
   return (
     <>
       <section
@@ -25,7 +25,7 @@ function CollegeCard() {
             Max Chances of Getting
           </div>
           <h1 className="font-medium text-[47px] text-[#161B2D]">
-            <span className="text-[#FF4E59] font-bold">NIT</span>&nbsp;Nagpur
+            <span className="text-[#FF4E59] font-bold">{title.split(" ")}</span>&nbsp;{title.split(" ").slice(1).join(" ")}
           </h1>
           <div className="branch flex flex-col justify-start items-start">
             <p className="shortform font-bold text-[21px] text-[#161b2d]">
