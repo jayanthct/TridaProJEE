@@ -33,7 +33,7 @@ function ResultMainSection() {
 
         {/* College Card */}
         <div className="w-full lg:w-[48%] flex justify-center h-full">
-          <CollegeCard rank={data?.rank} />
+          <CollegeCard rank={data?.rank} category={body?.category}/>
         </div>
       </section>
       

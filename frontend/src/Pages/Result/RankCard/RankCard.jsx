@@ -2,7 +2,7 @@ import React from "react";
 import design from "./Assets/design.svg";
 import CountUp from './CountUp'
 
-function RankCard({rank}) {
+function RankCard({rank,category}) {
   return (
     <>
       <section
@@ -24,7 +24,7 @@ function RankCard({rank}) {
             Congratulations!
           </h1>
           <p className="description font-medium text-[#161b2dad] text-[21px]">
-            Your expected GEN rank
+            Your expected {category} rank
           </p>
         </div>
 
@@ -35,7 +35,7 @@ function RankCard({rank}) {
             separator=","
             direction="up"
             duration={1}
-            className="rank font-extrabold text-[#161b2d] text-[82px] lg:text-[98px] count-up-text"
+            className="rank font-extrabold text-[#161b2d] text-[72px] lg:text-[98px] count-up-text"
           />
         </div>
 

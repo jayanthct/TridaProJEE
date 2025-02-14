@@ -2,7 +2,20 @@ import React, { useState } from "react";
 import PaginationRounded from "../../PaginationRounded";
 import TableNotFound from "../../../../TableNotFound";
 
-import { FaFlask, FaLaptopCode, FaWrench, FaBuilding, FaCog, FaRobot, FaMicrochip, FaAtom, FaBolt, FaRuler, FaGlobe, FaRocket } from "react-icons/fa";
+import {
+  FaFlask,
+  FaLaptopCode,
+  FaWrench,
+  FaBuilding,
+  FaCog,
+  FaRobot,
+  FaMicrochip,
+  FaAtom,
+  FaBolt,
+  FaRuler,
+  FaGlobe,
+  FaRocket,
+} from "react-icons/fa";
 
 const iconMap = {
   "Civil Engineering": <FaBuilding />,
@@ -37,7 +50,6 @@ const iconMap = {
   "Engineering Physics": <FaAtom />,
   "Integrated Master of Science": <FaAtom />,
 };
-
 
 const ResultTable = ({ collegeData = [] }) => {
   const itemsPerPage = 8;
@@ -86,8 +98,10 @@ const ResultTable = ({ collegeData = [] }) => {
                       {startIndex + index + 1}
                     </td>
                     <td className="p-4 text-[#FF4E59] font-bold gap-2">
-                      {instituteName}&nbsp;&nbsp;
-                      <span className="text-[#161b2d] font-medium"></span>
+                      {instituteName.split(" ")[0]}&nbsp;&nbsp;
+                      <span className="text-[#161b2d] font-medium">
+                        {instituteName.split(" ").slice(1).join(" ")}
+                      </span>
                     </td>
                     <td className="p-4 flex items-center gap-4 font-medium">
                       <span className="text-[#FF4E59] sm:flex hidden text-xl w-[52px] h-[52px] rounded-full bg-[#ff4e5a22] justify-center items-center">
@@ -95,7 +109,7 @@ const ResultTable = ({ collegeData = [] }) => {
                       </span>
                       {branchName}
                     </td>
-                  </tr>
+                  </tr> 
                 );
               })}
             </tbody>
