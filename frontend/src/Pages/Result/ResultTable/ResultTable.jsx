@@ -1,24 +1,45 @@
 import React, { useState } from "react";
-
-import { FaFlask, FaLaptopCode, FaWrench, FaBuilding } from "react-icons/fa";
 import PaginationRounded from "../../PaginationRounded";
 import TableNotFound from "../../../../TableNotFound";
 
-// const collegeData = Array.from({ length: 80 }, (_, i) => ({
-//   id: i + 1,
-//   name: i < 40 ? "BITS" : "IIIT",
-//   location: i < 40 ? "Mesra" : "Agartala",
-//   branch: [
-//     "Chemical Engineering",
-//     "Computer Science and Engineering",
-//     "Mechanical Engineering",
-//     "Civil Engineering",
-//   ][i % 4],
-//   icon: [<FaFlask />, <FaLaptopCode />, <FaWrench />, <FaBuilding />][i % 4],
-// }));
+import { FaFlask, FaLaptopCode, FaWrench, FaBuilding, FaCog, FaRobot, FaMicrochip, FaAtom, FaBolt, FaRuler, FaGlobe, FaRocket } from "react-icons/fa";
+
+const iconMap = {
+  "Civil Engineering": <FaBuilding />,
+  "Bio Technology": <FaFlask />,
+  "Chemical Engineering": <FaFlask />,
+  "Production Engineering": <FaWrench />,
+  "Computer Science and Engineering": <FaLaptopCode />,
+  "Computer Science": <FaLaptopCode />,
+  "Electronics and Communication Engineering": <FaMicrochip />,
+  "Mechatronics Engineering": <FaRobot />,
+  "Electrical and Electronics Engineering": <FaBolt />,
+  "Electrical Engineering": <FaBolt />,
+  "Mechanical Engineering": <FaCog />,
+  "Metallurgical and Materials Engineering": <FaAtom />,
+  "Materials Science and Engineering": <FaAtom />,
+  "Materials Science and Metallurgical Engineering": <FaAtom />,
+  "Mining Engineering": <FaGlobe />,
+  "Aerospace Engineering": <FaRocket />,
+  "Instrumentation and Control Engineering": <FaMicrochip />,
+  "Electronics and Instrumentation Engineering": <FaMicrochip />,
+  "Industrial Design": <FaRuler />,
+  "Food Process Engineering": <FaFlask />,
+  "Ceramic Engineering": <FaBuilding />,
+  "Textile Technology": <FaBuilding />,
+  "Bio Medical Engineering": <FaFlask />,
+  "Mathematics and Computing": <FaLaptopCode />,
+  "Physics": <FaAtom />,
+  "Chemistry": <FaFlask />,
+  "Life Science": <FaFlask />,
+  "Smart Manufacturing": <FaCog />,
+  "Information Technology": <FaLaptopCode />,
+  "Engineering Physics": <FaAtom />,
+  "Integrated Master of Science": <FaAtom />,
+};
 
 
-const ResultTable = ({collegeData}) => {
+const ResultTable = ({ collegeData = [] }) => {
   const itemsPerPage = 8;
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -35,11 +56,11 @@ const ResultTable = ({collegeData}) => {
   return (
     <>
       {collegeData.length === 0 ? (
-        <TableNotFound></TableNotFound>
+        <TableNotFound />
       ) : (
         <div className="overflow-x-auto px-[16px] md:px-[10%] py-[2%] w-full">
           <div className="heading mb-6 font-medium text-[21px]">
-            As per the data obtained from &nbsp;{" "}
+            As per the data obtained from &nbsp;
             <span className="font-bold text-[#FF4E59] text-[24px]">
               JOSSAA 2019
             </span>
@@ -47,30 +68,36 @@ const ResultTable = ({collegeData}) => {
           </div>
           <table className="w-full border-collapse">
             <tbody>
-              {displayedColleges.map((college, index) => (
-                <tr
-                  key={college.id}
-                  className={`${
-                    index % 2 === 0 ? "bg-[#FFF9FA]" : "bg-white"
-                  } border-t-1 border-t-[#c5c8cc]`}
-                >
-                  <td className="p-4 font-semibold">
-                    {startIndex + index + 1}
-                  </td>
-                  <td className="p-4 text-[#FF4E59] font-bold gap-2">
-                    {college.name}&nbsp;&nbsp;
-                    <span className="text-[#161b2d] font-medium">
-                      {college.location}
-                    </span>
-                  </td>
-                  <td className="p-4 flex items-center gap-4 font-medium">
-                    <span className="text-[#FF4E59] sm:flex hidden text-xl w-[52px] h-[52px] rounded-full bg-[#ff4e5a22] justify-center items-center">
-                      {college.icon}
-                    </span>
-                    {college.branch}
-                  </td>
-                </tr>
-              ))}
+              {displayedColleges.map((college, index) => {
+                const branchName = college["Branch Name"];
+                const instituteName = college["Institute"];
+                const icon = Object.keys(iconMap).find((key) =>
+                  branchName.includes(key)
+                ) || <FaBuilding />;
+
+                return (
+                  <tr
+                    key={`college-${startIndex + index}`} // Ensure unique key
+                    className={`${
+                      index % 2 === 0 ? "bg-[#FFF9FA]" : "bg-white"
+                    } border-t-1 border-t-[#c5c8cc]`}
+                  >
+                    <td className="p-4 font-semibold">
+                      {startIndex + index + 1}
+                    </td>
+                    <td className="p-4 text-[#FF4E59] font-bold gap-2">
+                      {instituteName}&nbsp;&nbsp;
+                      <span className="text-[#161b2d] font-medium"></span>
+                    </td>
+                    <td className="p-4 flex items-center gap-4 font-medium">
+                      <span className="text-[#FF4E59] sm:flex hidden text-xl w-[52px] h-[52px] rounded-full bg-[#ff4e5a22] justify-center items-center">
+                        {iconMap[icon]}
+                      </span>
+                      {branchName}
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
           <div className="flex justify-center mt-6">
