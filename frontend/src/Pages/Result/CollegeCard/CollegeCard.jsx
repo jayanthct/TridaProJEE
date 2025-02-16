@@ -14,7 +14,7 @@ function CollegeCard({title}) {
         <img
           src={mocktest}
           alt=""
-          className="branchicon absolute right-[-36px] bottom-10 md:scale-[1.4]"
+          className="branchicon w-full h-full"
         />
       </section>
     </>
