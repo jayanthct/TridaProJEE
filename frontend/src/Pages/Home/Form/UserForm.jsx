@@ -212,7 +212,7 @@ const UserForm = () => {
               Category <span className="text-[#FF4E59]">*</span>
             </legend>
             <div className="flex flex-wrap md:flex-row w-full justify-start items-start gap-6 mt-4">
-              {["GEN", "OBC", "EWS", "SC", "ST"].map((option) => (
+              {["GEN", "OBC-NCL", "EWS", "SC", "ST"].map((option) => (
                 <label key={option} className="flex items-center space-x-2">
                   <input
                     type="radio"

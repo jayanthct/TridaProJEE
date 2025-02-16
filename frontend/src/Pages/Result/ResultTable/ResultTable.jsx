@@ -3,18 +3,19 @@ import PaginationRounded from "../../PaginationRounded";
 import TableNotFound from "../../../../TableNotFound";
 
 import {
-  FaFlask,
-  FaLaptopCode,
-  FaWrench,
   FaBuilding,
-  FaCog,
-  FaRobot,
+  FaFlask,
+  FaWrench,
+  FaLaptopCode,
   FaMicrochip,
-  FaAtom,
+  FaRobot,
   FaBolt,
-  FaRuler,
+  FaCog,
+  FaAtom,
   FaGlobe,
   FaRocket,
+  FaRuler,
+  FaGraduationCap,
 } from "react-icons/fa";
 
 const iconMap = {
@@ -49,6 +50,16 @@ const iconMap = {
   "Information Technology": <FaLaptopCode />,
   "Engineering Physics": <FaAtom />,
   "Integrated Master of Science": <FaAtom />,
+
+  // New branches from image
+  "Materials and Metallurgical Engineering": <FaAtom />,
+  "Production and Industrial Engineering": <FaWrench />,
+  "Architecture": <FaBuilding />,
+  "Computer Engineering": <FaLaptopCode />,
+  "Electronics and Telecommunication Engineering": <FaMicrochip />,
+  "Data Science and Artificial Intelligence": <FaLaptopCode />,
+  "Integrated B. Tech.(IT) and MBA": <FaLaptopCode />,
+  "Biotechnology and Biochemical Engineering": <FaFlask />,
 };
 
 const ResultTable = ({ collegeData = [] }) => {
@@ -81,11 +92,17 @@ const ResultTable = ({ collegeData = [] }) => {
           <table className="w-full border-collapse">
             <tbody>
               {displayedColleges.map((college, index) => {
-                const branchName = college["Branch Name"];
+                const branchName = college["Branch"];
                 const instituteName = college["Institute"];
                 const icon = Object.keys(iconMap).find((key) =>
                   branchName.includes(key)
-                ) || <FaBuilding />;
+                ) ? (
+                  iconMap[
+                    Object.keys(iconMap).find((key) => branchName.includes(key))
+                  ]
+                ) : (
+                  <FaGraduationCap />
+                );
 
                 return (
                   <tr
@@ -109,7 +126,7 @@ const ResultTable = ({ collegeData = [] }) => {
                       </span>
                       {branchName}
                     </td>
-                  </tr> 
+                  </tr>
                 );
               })}
             </tbody>
