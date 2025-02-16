@@ -59,7 +59,7 @@ const UserForm = () => {
       if (res.status === 200 || res.status === 201) {
         setTimeout(() => {
           setLoading(false);
-          navigate("/result", { state: { data: res.data,body } }); // Pass data to result page
+          navigate("/result", { state: { data: res.data, body } }); // Pass data to result page
         }, 2500);
       } else {
         toast.error("Unexpected Error, Please Try Again!", {
@@ -82,7 +82,7 @@ const UserForm = () => {
   return (
     <>
       {loading ? (
-        <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-90">
+        <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-90 sm:bg-opacity-80 md:bg-opacity-75">
           <Loader />
         </div>
       ) : (
