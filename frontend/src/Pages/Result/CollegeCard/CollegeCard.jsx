@@ -1,7 +1,7 @@
 import React from "react";
 import mocktest from "./Assets/mocktest.png";
 
-function CollegeCard({title}) {
+function CollegeCard() {
   return (
     <>
       <section
