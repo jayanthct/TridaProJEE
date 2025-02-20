@@ -18,14 +18,17 @@ function App() {
 
   return (
     <>
-      <ToastContainer />
+      {/* <ToastContainer />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="home" element={<HomeMainSection />} />
           <Route index element={<ResultMainSection />} />
           <Route path="*" element={ <PageNotFound404></PageNotFound404>} />
         </Route>
-      </Routes>
+      </Routes> */}
+
+
+      <ResultMainSection></ResultMainSection>
 
      
     </>

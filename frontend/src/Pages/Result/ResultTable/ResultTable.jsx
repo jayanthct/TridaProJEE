@@ -50,7 +50,9 @@ const iconMap = {
   "Information Technology": <FaLaptopCode />,
   "Engineering Physics": <FaAtom />,
   "Integrated Master of Science": <FaAtom />,
-
+  "Biotechnology": <FaFlask />,
+  "Planning": <FaBuilding />,
+  "Integrated B. Tech.(IT) and M. Tech (IT)": <FaLaptopCode />,
   // New branches from image
   "Materials and Metallurgical Engineering": <FaAtom />,
   "Production and Industrial Engineering": <FaWrench />,

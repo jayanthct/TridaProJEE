@@ -82,7 +82,7 @@ const UserForm = () => {
   return (
     <>
       {loading ? (
-        <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-90 sm:bg-opacity-80 md:bg-opacity-75">
+        <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-90 sm:bg-opacity-80 md:bg-opacity-75 h-full w-full">
           <Loader />
         </div>
       ) : (

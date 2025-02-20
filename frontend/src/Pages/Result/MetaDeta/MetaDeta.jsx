@@ -6,7 +6,7 @@ function MetaData({percentile,gender,homestate,category}) {
 
   return (
     <section
-      className="metadata flex flex-wrap p-[16px] border-[2px] w-full gap-[16px] justify-center items-center border-[#161b2d4a] rounded-[12px] bg-white lg:h-full"
+      className="metadata flex flex-wrap p-[36px] border-[2px] w-full gap-[16px] justify-center items-center border-[#161b2d4a] rounded-[12px] bg-white"
       style={{
         boxShadow:
           "-17px 89px 25px 0px rgba(255, 78, 89, 0.00), -11px 57px 23px 0px rgba(255, 78, 89, 0.01), -6px 32px 20px 0px rgba(255, 78, 89, 0.02), -3px 14px 15px 0px rgba(255, 78, 89, 0.03), -1px 4px 8px 0px rgba(255, 78, 89, 0.04)",

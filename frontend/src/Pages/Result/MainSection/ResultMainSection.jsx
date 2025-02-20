@@ -14,6 +14,7 @@ function ResultMainSection() {
   const body = location.state?.body; // Retrieve the data passed
 
   const navigate = useNavigate();
+  const percentile = Math.min(100, Math.max(0, data?.percentile || 0));
 
   return (
     <>
@@ -24,23 +25,24 @@ function ResultMainSection() {
         <img src={back} alt="" className="w-8" /> Retry
       </button>
 
-      <section className="resultmainsection flex flex-wrap md:flex-row sm:flex-col gap-4 justify-center items-stretch px-[16px] md:px-[10%] py-[2%] w-full">
+      <section className="resultmainsection flex flex-row gap-4 justify-center items-stretch px-[16px] py-[2%] w-full flex-wrap md:flex-nowrap">
         {/* Rank + MetaData section */}
-        <div className="rankandmeta flex flex-col w-full lg:w-[48%] h-full gap-4 justify-between items-center flex-grow">
-          <RankCard rank={data?.rank} category={body?.category} />
+        <div className="rankandmeta flex flex-col gap-4 w-fill">
+          <RankCard
+            rank={data?.rank }
+            category={body?.category}
+          />
           <MetaData
-            percentile={data?.percentile}
+            percentile={percentile }
             homestate={body?.state}
             gender={body?.gender}
             category={body?.category}
           />
         </div>
 
-        {/* College Card */}
-        <div className="w-full lg:w-[48%] flex justify-center h-full">
+        <div className="flex items-center lg:w-[42%] h-fit w-fit justify-center">
           <CollegeCard />
         </div>
-        {/*erros*/}
       </section>
 
       {/* ✅ Fixed the prop name */}
