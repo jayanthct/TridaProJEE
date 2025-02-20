@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
 
 import CollegeCard from "../CollegeCard/CollegeCard";
 import MetaData from "../MetaDeta/MetaDeta";
@@ -16,6 +17,16 @@ function ResultMainSection() {
   const navigate = useNavigate();
   const percentile = Math.min(100, Math.max(0, data?.percentile || 0));
 
+  const animationLeft = {
+    hidden: { opacity: 0, x: -50 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
+  };
+
+  const animationRight = {
+    hidden: { opacity: 0, x: 50 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
+  };
+
   return (
     <>
       <button
@@ -27,22 +38,29 @@ function ResultMainSection() {
 
       <section className="resultmainsection flex flex-row gap-4 justify-center items-stretch px-[16px] py-[2%] w-full flex-wrap md:flex-nowrap">
         {/* Rank + MetaData section */}
-        <div className="rankandmeta flex flex-col gap-4 w-fill">
-          <RankCard
-            rank={data?.rank }
-            category={body?.category}
-          />
+        <motion.div
+          className="rankandmeta flex flex-col gap-4 w-fill"
+          initial="hidden"
+          animate="visible"
+          variants={animationLeft} // Slide from Left
+        >
+          <RankCard rank={data?.rank||9865} category={body?.category||"EWS"} />
           <MetaData
-            percentile={percentile }
-            homestate={body?.state}
-            gender={body?.gender}
-            category={body?.category}
+            percentile={percentile||89.98}
+            homestate={body?.state||"Andhra Prades - AP"}
+            gender={body?.gender|| "M"}
+            category={body?.category||"EWS"}
           />
-        </div>
+        </motion.div>
 
-        <div className="flex items-center lg:w-[42%] h-fit w-fit justify-center">
+        <motion.div
+          className="flex items-center lg:w-[42%] h-fit w-fit justify-center"
+          initial="hidden"
+          animate="visible"
+          variants={animationRight} // Slide from Right
+        >
           <CollegeCard />
-        </div>
+        </motion.div>
       </section>
 
       {/* ✅ Fixed the prop name */}
