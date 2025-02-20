@@ -1,12 +1,10 @@
 import React from "react";
+import { motion } from "framer-motion";
 import UserForm from "../Form/UserForm";
 import students from "../Assets/students.png";
 import layers from "./layers.png";
 
 function HomeMainSection() {
-
-  
-
   return (
     <>
       <section className="mainsection flex flex-row justify-center items-center gap-6 lg:pr-[10%] lg:pl-0 px-[16px] w-full relative overflow-clip">
@@ -23,7 +21,12 @@ function HomeMainSection() {
         />
 
         {/* Left Content + Image in a single flex column */}
-        <div className="hidden lg:flex flex-col justify-between gap-12 items-stretch w-1/2 min-h-screen h-full">
+        <motion.div
+          className="headingtext hidden lg:flex flex-col justify-between gap-12 items-stretch w-1/2 min-h-screen h-full"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           {/* Text Section */}
           <div className="leftcontent flex flex-col w-full justify-start items-start gap-2 pl-[22%] flex-grow">
             <p className="heading font-semibold text-[47px] text-[#161b2d]">
@@ -37,19 +40,29 @@ function HomeMainSection() {
           </div>
 
           {/* Image Section */}
-          <div className="image w-full scale-[1.25]">
+          <motion.div
+            className="studentimage w-full scale-[1.25] z-10"
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
             <img
               src={students}
               alt="Students"
-              className="bannerimg object-cover w-full h-full -mt-4"
+              className="bannerimg object-cover w-full h-full"
             />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* User Form */}
-        <div className="w-full lg:w-1/2 flex flex-col justify-between">
+        <motion.div
+          className="userform w-full lg:w-1/2 flex flex-col justify-between"
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           <UserForm />
-        </div>
+        </motion.div>
       </section>
     </>
   );
