@@ -30,16 +30,16 @@ function ResultMainSection() {
   return (
     <>
       <button
-        className="text-[#161B2D] flex gap-4 px-8 cursor-pointer justify-center items-center py-2 rounded-full h-[52px] font-bold border-2 border-[#161B2D] lg:ml-[10%] ml-[16px] -mb-0 lg:-mb-4 hover:bg-[#161b2d09]"
+        className="text-[#161B2D] flex gap-4 px-8 cursor-pointer justify-center items-center py-2 rounded-full h-[52px] font-bold border-2 border-[#161B2D] md:ml-[10%] ml-[16px] -mb-0 lg:-mb-4 hover:bg-[#161b2d09] hover:scale-[0.9] transition-all ease-in duration-200"
         onClick={() => navigate("/")}
       >
         <img src={back} alt="" className="w-8" /> Retry
       </button>
 
-      <section className="resultmainsection flex flex-row gap-4 justify-center items-stretch px-[16px] py-[2%] w-full flex-wrap md:flex-nowrap">
+      <section className="resultmainsection flex flex-row gap-4 justify-center items-stretch md:px-[10%] px-[16px] py-[2%] w-full flex-wrap md:flex-nowrap">
         {/* Rank + MetaData section */}
         <motion.div
-          className="rankandmeta flex flex-col gap-4 w-fill"
+          className="rankandmeta flex flex-col gap-4 w-full"
           initial="hidden"
           animate="visible"
           variants={animationLeft} // Slide from Left
@@ -54,12 +54,12 @@ function ResultMainSection() {
         </motion.div>
 
         <motion.div
-          className="flex items-center lg:w-[42%] h-fit w-fit justify-center"
+          className="flex items-center h-fit w-full justify-center"
           initial="hidden"
           animate="visible"
           variants={animationRight} // Slide from Right
         >
-          <CollegeCard />
+          <CollegeCard className="h-full w-full" />
         </motion.div>
       </section>
 

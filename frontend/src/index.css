@@ -2,11 +2,18 @@
 @import "tailwindcss";
 
 
+@theme{
+    --color-primary: #161B2D;
+    --color-secondary: #0E1810;
+}
+
+
 html,
 body {
-    height:screen;
+    height:100%;
     width: 100vw;
     overflow-x: hidden;
+    
 }
 html {
     scroll-behavior: smooth;

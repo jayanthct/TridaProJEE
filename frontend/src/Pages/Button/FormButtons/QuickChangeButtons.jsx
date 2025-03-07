@@ -7,7 +7,7 @@ function QuickChangeButtons({ formData, handleChange }) {
     <>
       <div className="quickchangebuttons flex w-full justify-around items-center gap-2 mt-2 bg-[#ff4e5a3b] lg:p-2 p-3 rounded-full mb-4">
         <button
-          className={`flex gap-4 px-8 cursor-pointer justify-center items-center w-full py-2 rounded-full text-[14px] lg:text-[16px] h-[52px] font-bold transition-all ${
+          className={`flex gap-4 px-8 cursor-pointer justify-center items-center w-full py-2 rounded-full text-[14px] lg:text-[16px] h-[52px] font-bold   hover:scale-[0.9] transition-all ease-in duration-200 ${
             active === "By Percentile"
               ? "bg-[#FF4E59] text-white"
               : "bg-white text-[#161b2d] border border-[#FF4E59]"
@@ -18,7 +18,7 @@ function QuickChangeButtons({ formData, handleChange }) {
         </button>
 
         <button
-          className={`flex gap-4 px-8 cursor-pointer justify-center items-center w-full py-2 rounded-full h-[52px] lg:text-[16px] text-[14px] font-bold transition-all ${
+          className={`flex gap-4 px-8 cursor-pointer justify-center items-center w-full py-2 rounded-full h-[52px] lg:text-[16px] text-[14px] font-bold hover:scale-[0.9] transition-all ease-in duration-200 ${
             active === "By Marks"
               ? "bg-[#FF4E59] text-white"
               : "bg-white text-[#161b2d] border border-[#FF4E59]"

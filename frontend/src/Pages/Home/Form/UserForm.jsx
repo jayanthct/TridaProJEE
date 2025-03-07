@@ -87,7 +87,7 @@ const UserForm = () => {
         </div>
       ) : (
         <form
-          className="w-full flex flex-col justify-start items-start lg:gap-4 gap-3 bg-white p-[32px] rounded-[16px] border-[2px] border-[#161b2d4a] md:px-[8%] px-[16px] "
+          className="w-full flex flex-col justify-start items-start lg:gap-4 gap-3 bg-white p-[32px] rounded-[16px] border-[2px] border-[#161b2d4a] md:px-[8%] px-[16px] z-30"
           style={{
             boxShadow:
               "-17px 89px 25px 0px rgba(255, 78, 89, 0.00), -11px 57px 23px 0px rgba(255, 78, 89, 0.01), -6px 32px 20px 0px rgba(255, 78, 89, 0.02), -3px 14px 15px 0px rgba(255, 78, 89, 0.03), -1px 4px 8px 0px rgba(255, 78, 89, 0.04)",
@@ -114,7 +114,7 @@ const UserForm = () => {
             </legend>
             <div className="flex gap-4 mt-4">
               {["YES", "NO"].map((option) => (
-                <label key={option} className="flex items-center space-x-2">
+                <label key={option} className="flex items-center space-x-2  cursor-pointer">
                   <input
                     type="radio"
                     name="pwd"
@@ -147,7 +147,7 @@ const UserForm = () => {
             </legend>
             <div className="flex gap-4 mt-4 ">
               {["M", "F"].map((option) => (
-                <label key={option} className="flex items-center space-x-2">
+                <label key={option} className="flex items-center space-x-2 cursor-pointer">
                   <input
                     type="radio"
                     name="gender"
@@ -180,7 +180,7 @@ const UserForm = () => {
             </legend>
             <div className="flex gap-4 mt-2">
               {["Institute", "Branch"].map((option) => (
-                <label key={option} className="flex items-center space-x-2">
+                <label key={option} className="flex items-center space-x-2  cursor-pointer">
                   <input
                     type="radio"
                     name="sortby"
@@ -213,7 +213,7 @@ const UserForm = () => {
             </legend>
             <div className="flex flex-wrap md:flex-row w-full justify-start items-start gap-6 mt-4">
               {["GEN", "OBC-NCL", "EWS", "SC", "ST"].map((option) => (
-                <label key={option} className="flex items-center space-x-2">
+                <label key={option} className="flex items-center space-x-2  cursor-pointer">
                   <input
                     type="radio"
                     name="category"
@@ -250,10 +250,10 @@ const UserForm = () => {
                   percentile: "",
                   marks: "",
                   homeState: "All India",
-                  pwd: "No",
-                  gender: "Male",
-                  sortBy: "College",
-                  category: "",
+                  pwd: "NO",
+                  gender: "M",
+                  sortby: "Institute",
+                  category: "GEN",
                 })
               }
               className="text-[#161B2D] font-semibold cursor-pointer underline"
@@ -261,7 +261,7 @@ const UserForm = () => {
               Clear
             </button>
             <button
-              className="text-white flex gap-4 px-8 cursor-pointer justify-center items-center py-2 rounded-full h-[52px] font-bold bg-[#161B2D]"
+              className="text-white flex gap-4 px-8 cursor-pointer justify-center items-center py-2 rounded-full h-[52px] font-bold bg-[#161B2D] hover:scale-[0.9] transition-all ease-in duration-200"
               onClick={(e) => handleSubmit(e)}
             >
               Get Results

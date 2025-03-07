@@ -20,10 +20,10 @@ function RankCard({rank,category}) {
         />
 
         <div className="text flex flex-col justify-center items-center">
-          <h1 className="heading font-bold text-[#FF4E59] text-[32px]">
+          <h1 className="heading font-bold text-[#FF4E59] md:text-[32px] text-[21px]">
             Congratulations!
           </h1>
-          <p className="description font-medium text-[#161b2dad] text-[21px]">
+          <p className="description font-medium text-[#161b2dad] md:text-[21px] text-[16px]">
             Your expected {category} rank
           </p>
         </div>
@@ -35,7 +35,7 @@ function RankCard({rank,category}) {
             separator=","
             direction="up"
             duration={1}
-            className="rank font-extrabold text-[#161b2d] text-[72px] lg:text-[98px] count-up-text"
+            className="rank font-extrabold text-[#161b2d] text-[54px] lg:text-[98px] count-up-text"
           />
         </div>
 

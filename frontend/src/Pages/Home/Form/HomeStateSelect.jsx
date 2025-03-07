@@ -90,7 +90,8 @@ const HomeStateSelect = ({ formData, setFormData }) => {
         : state.isFocused
         ? "#FF4E59"
         : "white",
-      color: "[#161b2d]",
+      color: state.isSelected?"white":"[#161b2d]",
+      transition: "all 150ms ease-in",
       cursor: "pointer",
       "&:hover": {
         backgroundColor: "#FF4E59",
