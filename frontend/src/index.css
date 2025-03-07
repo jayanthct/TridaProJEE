@@ -4,7 +4,7 @@
 
 @theme{
     --color-primary: #161B2D;
-    --color-secondary: #0E1810;
+    --color-secondary: #FF4E59;
 }
 
 
@@ -13,7 +13,7 @@ body {
     height:100%;
     width: 100vw;
     overflow-x: hidden;
-    
+    line-height: 100%;
 }
 html {
     scroll-behavior: smooth;

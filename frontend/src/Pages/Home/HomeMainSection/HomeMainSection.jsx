@@ -4,11 +4,12 @@ import UserForm from "../Form/UserForm";
 import students from "../Assets/students.png";
 import ap from "../Assets/AP.png";
 import layers from "./layers.png";
+import MapAnimation from "../Form/MapAnimation";
 
 function HomeMainSection() {
   return (
     <>
-      <section className="mainsection flex flex-row justify-between items-stretch gap-6 lg:pr-[10%] lg:pl-0 px-[16px] w-full relative overflow-clip min-h-screen">
+      <section className="mainsection flex flex-row justify-between items-stretch gap-6 lg:pr-[4%] lg:pl-0 sm:px-[4%] px-[16px] w-full relative overflow-clip">
         {/* Background Layer */}
         <img
           src={layers}
@@ -24,14 +25,14 @@ function HomeMainSection() {
         {/* Left Content + Image in a single flex column */}
 
         <motion.div
-          className="headingtext hidden lg:flex flex-col justify-start gap-[82px] items-center w-[60%] min-h-screen"
+          className="headingtext hidden lg:flex flex-col justify-start gap-4 items-center w-[60%]"
           style={{ alignSelf: "stretch" }}
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           {/* Text Section */}
-          <div className="leftcontent flex flex-col w-full justify-between items-strech gap-2 z-10 lg:pl-[12%]">
+          <div className="leftcontent flex flex-col w-full justify-between items-strech gap-2 z-10 lg:pl-[8%]">
             <p className="heading font-semibold text-[47px] text-[#161b2d]">
               Worry about &nbsp;
               <span className="font-bold text-[#FF4E59]">College?</span>
@@ -43,13 +44,8 @@ function HomeMainSection() {
           </div>
 
           {/* Image Container - Takes remaining space */}
-          <div className="imageContainer w-fit h-fit">
-            <img
-              src={ap} // Replace with your actual image source
-              alt="Students"
-              className="w-fit h-fit object-contain lg:scale-[1.25] md:scale-1"
-            />
-          </div>
+          <MapAnimation></MapAnimation>
+
         </motion.div>
 
         {/* userform */}

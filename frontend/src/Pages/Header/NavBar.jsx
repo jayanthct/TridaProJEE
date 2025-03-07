@@ -16,7 +16,7 @@ function NavBar() {
   return (
     <>
       <motion.nav
-        className="navbar flex justify-between items-start px-[2%] md:px-[10%] py-[2%] w-full mt-2"
+        className="navbar flex justify-between items-start px-[2%] md:px-[4%] py-[2%] w-full mt-2"
         initial="hidden"
         animate="visible"
         variants={slideDown} // Slide down animation

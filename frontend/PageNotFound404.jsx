@@ -14,7 +14,7 @@ function PageNotFound404() {
 
   return (
     <>
-      <section className="pagenotfound relative  flex flex-col gap-1 h-screen justify-center items-center px-[16px] py-0 md:py-[2%] md:px-[10%] w-full">
+      <section className="pagenotfound relative  flex flex-col gap-1 h-fit justify-center items-center px-[16px] py-0 md:py-[2%] md:px-[10%] w-full">
         <img
           src={layers}
           alt=""
