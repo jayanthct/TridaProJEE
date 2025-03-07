@@ -9,8 +9,8 @@ function QuickChangeButtons({ formData, handleChange }) {
         <button
           className={`flex gap-4 px-8 cursor-pointer justify-center items-center w-full py-2 rounded-full text-[14px] lg:text-[16px] h-[52px] font-bold   hover:scale-[0.9] transition-all ease-in duration-200 ${
             active === "By Percentile"
-              ? "bg-[#FF4E59] text-white"
-              : "bg-white text-[#161b2d] border border-[#FF4E59]"
+              ? "bg-secondary text-white"
+              : "bg-white text-primary border border-secondary"
           }`}
           onClick={() => setActive("By Percentile")}
         >
@@ -20,8 +20,8 @@ function QuickChangeButtons({ formData, handleChange }) {
         <button
           className={`flex gap-4 px-8 cursor-pointer justify-center items-center w-full py-2 rounded-full h-[52px] lg:text-[16px] text-[14px] font-bold hover:scale-[0.9] transition-all ease-in duration-200 ${
             active === "By Marks"
-              ? "bg-[#FF4E59] text-white"
-              : "bg-white text-[#161b2d] border border-[#FF4E59]"
+              ? "bg-secondary text-white"
+              : "bg-white text-primary border border-secondary"
           }`}
           onClick={() => setActive("By Marks")}
         >
@@ -32,9 +32,9 @@ function QuickChangeButtons({ formData, handleChange }) {
       {/* Conditionally Render Inputs */}
       {active === "By Marks" && (
         <>
-          <label className="block text-sm font-bold text-[#161B2D] md:text-[16px] text-[14px]">
+          <label className="block text-sm font-bold text-primary md:text-[16px] text-[14px]">
             Marks <span className="font-normal text-[14px]">(out of 300)</span>{" "}
-            <span className="text-[#FF4E59]">*</span>
+            <span className="text-secondary">*</span>
           </label>
           <input
             required
@@ -55,9 +55,9 @@ function QuickChangeButtons({ formData, handleChange }) {
 
       {active === "By Percentile" && (
         <>
-          <label className="block text-sm font-bold text-[#161B2D] md:text-[16px] text-[14px]">
+          <label className="block text-sm font-bold text-primary md:text-[16px] text-[14px]">
             Percentile <span className="font-normal text-[14px]">(out of 100)</span>{" "}
-            <span className="text-[#FF4E59]">*</span>
+            <span className="text-secondary">*</span>
           </label>
           <input
             required

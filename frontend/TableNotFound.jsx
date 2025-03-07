@@ -21,14 +21,14 @@ function TableNotFound() {
       />
         <div className="text flex flex-col justify-center items-center -mt-10">
           <span>
-            <p className="heading text-[156px] lg:text-[264px] text-[#161B2D] font-extrabold">
+            <p className="heading text-[156px] lg:text-[264px] text-primary text-center font-extrabold">
               {":)"}
             </p>
           </span>
-          <p className="desc text-[27px] md:text-[36px] font-semibold text-[#FF4E59] -mt-10">
+          <p className="desc text-[27px] md:text-[36px] font-semibold text-secondary text-center -mt-10">
             Sorry!
           </p>
-          <p className="desc text-[#161B2D] text-[21px] md:text-[27px] font-normal">
+          <p className="desc text-primary text-center text-[21px] md:text-[27px] font-normal">
           We Don't find colleges for you
           </p>
         </div>

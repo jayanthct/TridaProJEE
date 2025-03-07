@@ -33,9 +33,9 @@ function HomeMainSection() {
         >
           {/* Text Section */}
           <div className="leftcontent flex flex-col w-full justify-between items-strech gap-2 z-10 lg:pl-[8%]">
-            <p className="heading font-semibold text-[47px] text-[#161b2d]">
+            <p className="heading font-semibold text-[47px] text-primary">
               Worry about &nbsp;
-              <span className="font-bold text-[#FF4E59]">College?</span>
+              <span className="font-bold text-secondary">College?</span>
             </p>
             <p className="description italic font-normal text-[14px] text-[#161b2db2]">
               “Our Platform will give you accurate college prediction to your

@@ -53,10 +53,10 @@ const MapAnimation = () => {
       </div>
 
       {/* -- Inner Circle (Static) -- */}
-      <div className="absolute w-[400px] h-[400px] rounded-full border-[54px] border-[#FF4E59] opacity-20" />
+      <div className="absolute w-[400px] h-[400px] rounded-full border-[54px] border-secondary opacity-20" />
 
       {/* -- Outer Circle (Static) -- */}
-      <div className="absolute w-[600px] h-[600px] rounded-full border-[20px] border-[#FF4E59]" />
+      <div className="absolute w-[600px] h-[600px] rounded-full border-[20px] border-secondary" />
 
       {/* -- Inner Logos Orbiting -- */}
       {innerLogos.map((logo, index) => {

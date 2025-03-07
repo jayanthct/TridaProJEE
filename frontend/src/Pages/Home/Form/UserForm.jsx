@@ -82,9 +82,10 @@ const UserForm = () => {
   return (
     <>
       {loading ? (
-        <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-90 sm:bg-opacity-80 md:bg-opacity-75 h-full w-full">
-          <Loader />
-        </div>
+       <div className="fixed top-0 left-0 w-full h-full min-h-screen flex items-center justify-center bg-white bg-opacity-90 sm:bg-opacity-80 md:bg-opacity-75 z-50">
+       <Loader />
+     </div>
+     
       ) : (
         <form
           className="w-full flex flex-col justify-start items-start lg:gap-4 gap-3 bg-white p-[32px] rounded-[16px] border-[2px] border-[#161b2d4a] md:px-[8%] px-[16px] z-30"
@@ -108,9 +109,9 @@ const UserForm = () => {
 
           {/* PwD (Person With Disability) */}
           <fieldset className="mt-4">
-            <legend className="block text-sm font-bold text-[#161B2D] md:text-[16px] text-[14px]">
+            <legend className="block text-sm font-bold text-primary md:text-[16px] text-[14px]">
               PwD (Person With Disability){" "}
-              <span className="text-[#FF4E59]">*</span>
+              <span className="text-secondary">*</span>
             </legend>
             <div className="flex gap-4 mt-4">
               {["YES", "NO"].map((option) => (
@@ -124,12 +125,12 @@ const UserForm = () => {
                     className="hidden"
                   />
                   <div
-                    className={`w-5 h-5 border-2 border-[#FF4E59] rounded-full flex items-center justify-center ${
+                    className={`w-5 h-5 border-2 border-secondary rounded-full flex items-center justify-center ${
                       formData.pwd === option ? "border-6" : "bg-white"
                     }`}
                   />
                   <span
-                    className={`text-[#161B2D] ${
+                    className={`text-primary ${
                       formData.pwd === option ? "font-medium" : "font-normal"
                     }`}
                   >
@@ -142,8 +143,8 @@ const UserForm = () => {
 
           {/* Gender Selection */}
           <fieldset className="mt-4">
-            <legend className="block text-sm font-bold text-[#161B2D] md:text-[16px] text-[14px]">
-              Gender <span className="text-[#FF4E59]">*</span>
+            <legend className="block text-sm font-bold text-primary md:text-[16px] text-[14px]">
+              Gender <span className="text-secondary">*</span>
             </legend>
             <div className="flex gap-4 mt-4 ">
               {["M", "F"].map((option) => (
@@ -157,12 +158,12 @@ const UserForm = () => {
                     className="hidden"
                   />
                   <div
-                    className={`w-5 h-5 border-2 border-[#FF4E59] rounded-full flex items-center justify-center ${
+                    className={`w-5 h-5 border-2 border-secondary rounded-full flex items-center justify-center ${
                       formData.gender === option ? "border-6" : "bg-white"
                     }`}
                   />
                   <span
-                    className={`text-[#161B2D] ${
+                    className={`text-primary ${
                       formData.gender === option ? "font-medium" : "font-normal"
                     }`}
                   >
@@ -175,7 +176,7 @@ const UserForm = () => {
 
           {/* Sort By Selection */}
           <fieldset className="mt-4">
-            <legend className="block text-sm font-bold text-[#161B2D] md:text-[16px] text-[14px]">
+            <legend className="block text-sm font-bold text-primary md:text-[16px] text-[14px]">
               Sort By
             </legend>
             <div className="flex gap-4 mt-2">
@@ -190,12 +191,12 @@ const UserForm = () => {
                     className="hidden"
                   />
                   <div
-                    className={`w-5 h-5 border-2 border-[#FF4E59] rounded-full flex items-center justify-center ${
+                    className={`w-5 h-5 border-2 border-secondary rounded-full flex items-center justify-center ${
                       formData.sortby === option ? "border-6" : "bg-white"
                     }`}
                   />
                   <span
-                    className={`text-[#161B2D] ${
+                    className={`text-primary ${
                       formData.sortby === option ? "font-medium" : "font-normal"
                     }`}
                   >
@@ -208,8 +209,8 @@ const UserForm = () => {
 
           {/* Category Selection */}
           <fieldset className="mt-4">
-            <legend className="block text-sm font-bold text-[#161B2D] md:text-[16px] text-[14px]">
-              Category <span className="text-[#FF4E59]">*</span>
+            <legend className="block text-sm font-bold text-primary md:text-[16px] text-[14px]">
+              Category <span className="text-secondary">*</span>
             </legend>
             <div className="flex flex-wrap md:flex-row w-full justify-start items-start gap-6 mt-4">
               {["GEN", "OBC-NCL", "EWS", "SC", "ST"].map((option) => (
@@ -223,12 +224,12 @@ const UserForm = () => {
                     className="hidden"
                   />
                   <div
-                    className={`w-5 h-5 border-2 border-[#FF4E59] rounded-full flex items-center justify-center ${
+                    className={`w-5 h-5 border-2 border-secondary rounded-full flex items-center justify-center ${
                       formData.category === option ? "border-6" : "bg-white"
                     }`}
                   />
                   <span
-                    className={`text-[#161B2D] ${
+                    className={`text-primary ${
                       formData.category === option
                         ? "font-medium"
                         : "font-normal"
@@ -256,12 +257,12 @@ const UserForm = () => {
                   category: "GEN",
                 })
               }
-              className="text-[#161B2D] font-semibold cursor-pointer underline"
+              className="text-primary font-semibold cursor-pointer underline"
             >
               Clear
             </button>
             <button
-              className="text-white flex gap-4 px-8 cursor-pointer justify-center items-center py-2 rounded-full h-[52px] font-bold bg-[#161B2D] hover:scale-[0.9] transition-all ease-in duration-200"
+              className="text-white flex gap-4 px-8 cursor-pointer justify-center items-center py-2 rounded-full h-[52px] font-bold bg-primary hover:scale-[0.9] transition-all ease-in duration-200"
               onClick={(e) => handleSubmit(e)}
             >
               Get Results

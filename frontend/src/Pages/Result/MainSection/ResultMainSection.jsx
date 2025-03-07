@@ -30,7 +30,7 @@ function ResultMainSection() {
   return (
     <>
       <button
-        className="text-[#161B2D] flex gap-4 px-8 cursor-pointer justify-center items-center py-2 rounded-full h-[52px] font-bold border-2 border-[#161B2D] md:ml-[4%] ml-[16px] -mb-0 hover:bg-[#161b2d09] hover:scale-[0.9] transition-all ease-in duration-200"
+        className="text-primary flex gap-4 px-8 cursor-pointer justify-center items-center py-2 rounded-full h-[52px] font-bold border-2 border-primary md:ml-[4%] ml-[16px] -mb-0 hover:bg-[#161b2d09] hover:scale-[0.9] transition-all ease-in duration-200"
         onClick={() => navigate("/")}
       >
         <img src={back} alt="" className="w-8" /> Retry

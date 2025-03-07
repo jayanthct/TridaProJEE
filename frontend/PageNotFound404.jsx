@@ -31,7 +31,7 @@ function PageNotFound404() {
             animate="visible"
             variants={scaleUp} // Scale animation for the heading
           >
-            <p className="heading text-[156px] lg:text-[264px] text-[#161B2D] font-extrabold">
+            <p className="heading text-[156px] lg:text-[264px] text-primary font-extrabold">
               404
             </p>
           </motion.span>
@@ -41,7 +41,7 @@ function PageNotFound404() {
             animate="visible"
             variants={scaleUp} // Scale animation for the subheading
             transition={{ delay: 0.2 }} // Slight delay for staggered effect
-            className="desc text-[27px] md:text-[36px] font-semibold text-[#FF4E59] -mt-10"
+            className="desc text-[27px] md:text-[36px] font-semibold text-secondary -mt-10"
           >
             Page Not Found!
           </motion.p>
@@ -51,7 +51,7 @@ function PageNotFound404() {
             animate="visible"
             variants={scaleUp} // Scale animation for the description
             transition={{ delay: 0.4 }} // More delay for staggered effect
-            className="desc text-[#161B2D] text-[21px] md:text-[27px] font-normal"
+            className="desc text-primary text-[21px] md:text-[27px] font-normal"
           >
             Try Again Later
           </motion.p>

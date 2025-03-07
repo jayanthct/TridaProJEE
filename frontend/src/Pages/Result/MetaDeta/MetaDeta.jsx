@@ -16,13 +16,13 @@ function MetaData({percentile,gender,homestate,category}) {
         <div key={index} className="flex items-center justify-between">
           {/* Dynamic title and value */}
           <div className="content flex flex-col items-start">
-            <p className="heading font-bold text-[#FF4E59]">{item}</p>
+            <p className="heading font-bold text-secondary">{item}</p>
             <p className="value text-[#161B2D] font-medium">{value[index]}</p>
           </div>
 
           {/* Add a separator line between elements except the last one */}
           {index !== title.length - 1 && (
-            <div className="h-[48px] w-0 border-[2px] border-[#FF4E59] mx-4"></div>
+            <div className="h-[48px] w-0 border-[2px] border-secondary mx-4"></div>
           )}
         </div>
       ))}

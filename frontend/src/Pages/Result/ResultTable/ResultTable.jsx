@@ -86,7 +86,7 @@ const ResultTable = ({ collegeData = [] }) => {
         <div className="overflow-x-auto px-[16px] md:px-[10%] py-[2%] w-full">
           <div className="heading mb-6 font-medium text-[21px]">
             As per the data obtained from &nbsp;
-            <span className="font-bold text-[#FF4E59] text-[24px]">
+            <span className="font-bold text-secondary text-[24px]">
               JOSSAA 2019
             </span>
             ,&nbsp; you might get:
@@ -116,14 +116,14 @@ const ResultTable = ({ collegeData = [] }) => {
                     <td className="p-4 font-semibold">
                       {startIndex + index + 1}
                     </td>
-                    <td className="p-4 text-[#FF4E59] font-bold gap-2">
+                    <td className="p-4 text-secondary font-bold gap-2">
                       {instituteName.split(" ")[0]}&nbsp;&nbsp;
-                      <span className="text-[#161b2d] font-medium">
+                      <span className="text-primary font-medium">
                         {instituteName.split(" ").slice(1).join(" ")}
                       </span>
                     </td>
                     <td className="p-4 flex items-center gap-4 font-medium">
-                      <span className="text-[#FF4E59] sm:flex hidden text-xl w-[52px] h-[52px] rounded-full bg-[#ff4e5a22] justify-center items-center">
+                      <span className="text-secondary sm:flex hidden text-xl w-[52px] h-[52px] rounded-full bg-[#ff4e5a22] justify-center items-center">
                         {iconMap[icon]}
                       </span>
                       {branchName}

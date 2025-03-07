@@ -52,6 +52,7 @@ const customStyles = {
   option: (provided, { isFocused, isSelected }) => ({
     ...provided,
     backgroundColor: isSelected ? "#FF4E59" : isFocused ? "#FF4E59" : "white",
+    
     color: isSelected || isFocused ? "white" : "#161B2D",
     cursor: "pointer",
   }),
@@ -102,8 +103,8 @@ const HomeStateSelect = ({ formData, setFormData }) => {
 
   return (
     <div className="w-full">
-      <label className="block text-sm font-bold text-[#161B2D] md:text-[16px] text-[14px] mb-4">
-        Home State <span className="text-[#FF4E59]">*</span>
+      <label className="block text-sm font-bold text-primary md:text-[16px] text-[14px] mb-4">
+        Home State <span className="text-secondary">*</span>
       </label>
       <Select
         styles={customStyles}
